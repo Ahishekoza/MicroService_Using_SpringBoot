@@ -12,7 +12,7 @@ public class DepartmentController {
     @Autowired
     private DepartmentService departmentService;
 
-    @PostMapping
+    @PostMapping("/")
     private Department createDepartmentController(@RequestBody  Department department){
         return departmentService.createDepartmentService(department);
     }

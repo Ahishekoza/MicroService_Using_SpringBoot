@@ -29,7 +29,7 @@ public class UserService {
 
 //        --- RestTemplate Call
         Department department = restTemplate.getForObject
-                ("http://localhost:9001/department/"+user.getDepartmentId(), Department.class);
+                ("http://DEPARTMENTSERVICE/department/"+user.getDepartmentId(), Department.class);
 
 
         ResponseVO responseVO  = new ResponseVO();
