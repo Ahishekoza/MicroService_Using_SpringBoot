@@ -6,7 +6,6 @@
 
 	<modelVersion>4.0.0</modelVersion>
 
-	<!-- ✅ Stable Spring Boot version -->
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
@@ -18,44 +17,52 @@
 	<artifactId>CloudGateway</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>CloudGateway</name>
-	<description>Spring Cloud Gateway Project</description>
+	<description>Spring Cloud Gateway with Resilience4j</description>
 
 	<properties>
 		<java.version>17</java.version>
-		<!-- ✅ Compatible Spring Cloud version -->
 		<spring-cloud.version>2023.0.1</spring-cloud.version>
 	</properties>
 
 	<dependencies>
 
-		<!-- ✅ Spring Cloud Gateway (Reactive - CORRECT ONE) -->
+		<!-- Spring Cloud Gateway -->
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-gateway</artifactId>
 		</dependency>
 
-		<!-- ✅ Eureka Client -->
+		<!-- Eureka Client -->
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
 		</dependency>
 
-		<!-- ✅ Actuator (for health/debugging) -->
+		<!-- Load Balancer -->
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-loadbalancer</artifactId>
+		</dependency>
+
+		<!-- ✅ Circuit Breaker with Resilience4j - This is the most important one -->
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-circuitbreaker-resilience4j</artifactId>
+		</dependency>
+
+		<!-- Actuator + AOP -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-actuator</artifactId>
 		</dependency>
 
-		<!-- ✅ Test -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-test</artifactId>
-			<scope>test</scope>
+			<artifactId>spring-boot-starter-aop</artifactId>
 		</dependency>
 
 	</dependencies>
 
-	<!-- ✅ Spring Cloud BOM -->
 	<dependencyManagement>
 		<dependencies>
 			<dependency>
